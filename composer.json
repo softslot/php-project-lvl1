@@ -1,5 +1,6 @@
 {
     "name": "hexlet/code",
+    "bin": ["bin/brain-games"],
     "autoload": {
         "psr-4": {
             "Hexlet\\Code\\": "src/"
@@ -10,5 +11,7 @@
             "name": "Konstantin"
         }
     ],
+    "license": "MIT",
+    "description": "Project Brain Games",
     "require": {}
 }
