@@ -1,10 +1,13 @@
 {
-    "name": "hexlet/code",
+    "name": "softslot/php-project-lvl1",
     "bin": ["bin/brain-games"],
     "autoload": {
         "psr-4": {
-            "Hexlet\\Code\\": "src/"
-        }
+            "Brain\\Games\\": "src"
+        },
+        "files": [
+            "src/Cli.php"
+        ]
     },
     "authors": [
         {
@@ -13,5 +16,7 @@
     ],
     "license": "MIT",
     "description": "Project Brain Games",
-    "require": {}
+    "require": {
+        "wp-cli/php-cli-tools": "^0.11.13"
+    }
 }
