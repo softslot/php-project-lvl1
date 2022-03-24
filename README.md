@@ -1,2 +1,2 @@
 ### Hexlet tests and linter status:
-[![Actions Status](https://github.com/softslot/php-project-lvl1/workflows/hexlet-check/badge.svg)](https://github.com/softslot/php-project-lvl1/actions) [![Maintainability](https://api.codeclimate.com/v1/badges/a99a88d28ad37a79dbf6/maintainability)](https://codeclimate.com/github/codeclimate/codeclimate/maintainability)
+[![Actions Status](https://github.com/softslot/php-project-lvl1/workflows/hexlet-check/badge.svg)](https://github.com/softslot/php-project-lvl1/actions) [![Maintainability](https://api.codeclimate.com/v1/badges/10012d1fdd30df291a5e/maintainability)](https://codeclimate.com/github/softslot/php-project-lvl1/maintainability)
