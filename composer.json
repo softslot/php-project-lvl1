@@ -1,12 +1,16 @@
 {
     "name": "softslot/php-project-lvl1",
-    "bin": ["bin/brain-games"],
+    "bin": [
+        "bin/brain-games",
+        "bin/brain-even"
+    ],
     "autoload": {
         "psr-4": {
             "Brain\\Games\\": "src"
         },
         "files": [
-            "src/Cli.php"
+            "src/Cli.php",
+            "src/Even.php"
         ]
     },
     "authors": [
