@@ -35,7 +35,8 @@ function printPlayerAnswerMsg($playerAnswer)
     line("Your answer: %s", $playerAnswer);
 }
 
-function printWrongAnswerMsg($playerAnswer, $correctAnswer, $name) {
+function printWrongAnswerMsg($playerAnswer, $correctAnswer, $name)
+{
     line("'%s' is wrong answer ;(. Correct answer was '%s'.", $playerAnswer, $correctAnswer);
     line("Let's try again, %s!", $name);
 }
