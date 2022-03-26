@@ -20,6 +20,16 @@ function getNumberRounds()
     return 3;
 }
 
+function getRandomNumbers($count = 2)
+{
+    $result = [];
+    for ($i = 1; $i <= $count; $i++) {
+        $result[] = rand(1, 100);
+    }
+
+    return $result;
+}
+
 function printWelcomeMsg()
 {
     line('Welcome to the Brain Games!');
