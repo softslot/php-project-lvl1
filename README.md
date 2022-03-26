@@ -13,3 +13,7 @@
 ## Brain GCD
 
 [![asciicast](https://asciinema.org/a/480750.svg)](https://asciinema.org/a/480750)
+
+## Brain Progression
+
+[![asciicast](https://asciinema.org/a/480758.svg)](https://asciinema.org/a/480758)
