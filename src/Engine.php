@@ -20,11 +20,11 @@ function getNumberRounds()
     return 3;
 }
 
-function getRandomNumbers($count = 2)
+function getRandomNumbers($count = 2, $min = 1, $max = 100)
 {
     $result = [];
     for ($i = 1; $i <= $count; $i++) {
-        $result[] = rand(1, 100);
+        $result[] = rand($min, $max);
     }
 
     return $result;
