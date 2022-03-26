@@ -20,7 +20,7 @@ function startGame()
         [$randomNumber] = getRandomNumbers(1);
 
         $correctAnswer = "yes";
-        $divisors = [2, 3, 5];
+        $divisors = [2, 3, 5, 7];
         foreach ($divisors as $divisor) {
             if ($randomNumber % $divisor === 0) {
                 $correctAnswer = "no";
