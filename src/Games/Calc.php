@@ -3,16 +3,10 @@
 namespace Brain\Games\Calc;
 
 use function cli\line;
-use function Brain\Games\Engine\getPlayerName;
-use function Brain\Games\Engine\getPlayerAnswer;
-use function Brain\Games\Engine\getNumberRounds;
-use function Brain\Games\Engine\printWelcomeMsg;
-use function Brain\Games\Engine\printGreetingMsg;
-use function Brain\Games\Engine\printPlayerAnswerMsg;
-use function Brain\Games\Engine\printCongratulationMsg;
-use function Brain\Games\Engine\printWrongAnswerMsg;
-use function Brain\Games\Engine\printCorrectMsg;
-use function Brain\Games\Engine\getRandomNumbers;
+use function Brain\Games\Engine\{getPlayerName, getPlayerAnswer, getNumberRounds};
+use function Brain\Games\Engine\{printWelcomeMsg, printGreetingMsg, printPlayerAnswerMsg};
+use function Brain\Games\Engine\{printCongratulationMsg, printWrongAnswerMsg, printCorrectMsg};
+use function Brain\Games\Engine\{getRandomNumbers};
 
 function startGame()
 {
