@@ -23,7 +23,7 @@ function startGame()
         [$progressionStart] = getRandomNumbers(1, 1, 100);
 
         for ($j = 0; $j < $progressionLength; $j++) {
-            if (empty($progression)) {
+            if (count($progression) === 0) {
                 $progression[] = $progressionStart;
             } else {
                 $progression[] = $progression[$j - 1] + $progressionStep;
