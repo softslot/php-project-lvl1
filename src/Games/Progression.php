@@ -21,7 +21,7 @@ function startGame()
         [$progressionLength] = getRandomNumbers(1, 5, 10);
         [$progressionStep] = getRandomNumbers(1, 1, 10);
         [$progressionStart] = getRandomNumbers(1, 1, 100);
-        
+
         for ($j = 0; $j < $progressionLength; $j++) {
             if (empty($progression)) {
                 $progression[] = $progressionStart;
