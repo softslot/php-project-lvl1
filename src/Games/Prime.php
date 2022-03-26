@@ -22,7 +22,7 @@ function startGame()
         $correctAnswer = "yes";
         $divisors = [2, 3, 5, 7];
         foreach ($divisors as $divisor) {
-            if ($randomNumber % $divisor === 0) {
+            if ($randomNumber % $divisor === 0 || $randomNumber === 1) {
                 $correctAnswer = "no";
             }
         }
