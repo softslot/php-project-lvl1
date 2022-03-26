@@ -12,6 +12,7 @@ use function Brain\Games\Engine\printPlayerAnswerMsg;
 use function Brain\Games\Engine\printCongratulationMsg;
 use function Brain\Games\Engine\printWrongAnswerMsg;
 use function Brain\Games\Engine\printCorrectMsg;
+use function Brain\Games\Engine\getRandomNumbers;
 
 function startGame()
 {
@@ -21,30 +22,27 @@ function startGame()
 
     line("What is the result of the expression?");
 
-    define("MIN_NUMBER", 0);
-    define("MAX_NUMBER", 10);
     $operators = ["+", "-", "*"];
     $lastIndex = count($operators) - 1;
 
     for ($i = 1; $i <= getNumberRounds(); $i++) {
         $randomOperator = $operators[rand(0, $lastIndex)];
-        $firstRandomNumber = rand(MIN_NUMBER, MAX_NUMBER);
-        $secondRandomNumber = rand(MIN_NUMBER, MAX_NUMBER);
+        [$firstNumber, $secondNumber] = getRandomNumbers(2, 0, 10);
 
         $correctAnswer = 0;
         switch ($randomOperator) {
             case "+":
-                $correctAnswer = $firstRandomNumber + $secondRandomNumber;
+                $correctAnswer = $firstNumber + $secondNumber;
                 break;
             case "-":
-                $correctAnswer = $firstRandomNumber - $secondRandomNumber;
+                $correctAnswer = $firstNumber - $secondNumber;
                 break;
             case "*":
-                $correctAnswer = $firstRandomNumber * $secondRandomNumber;
+                $correctAnswer = $firstNumber * $secondNumber;
                 break;
         }
 
-        $playerAnswer = getPlayerAnswer("{$firstRandomNumber} {$randomOperator} {$secondRandomNumber}");
+        $playerAnswer = getPlayerAnswer("{$firstNumber} {$randomOperator} {$secondNumber}");
         printPlayerAnswerMsg($playerAnswer);
 
         if (intval($playerAnswer) !== intval($correctAnswer)) {
