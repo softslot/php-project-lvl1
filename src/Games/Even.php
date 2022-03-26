@@ -12,6 +12,7 @@ use function Brain\Games\Engine\printPlayerAnswerMsg;
 use function Brain\Games\Engine\printCongratulationMsg;
 use function Brain\Games\Engine\printWrongAnswerMsg;
 use function Brain\Games\Engine\printCorrectMsg;
+use function Brain\Games\Engine\getRandomNumbers;
 
 function startGame()
 {
@@ -21,11 +22,8 @@ function startGame()
 
     line("Answer \"yes\" if the number is even, otherwise answer \"no\".");
 
-    define("MIN_NUMBER", 1);
-    define("MAX_NUMBER", 100);
-
     for ($i = 1; $i <= getNumberRounds(); $i++) {
-        $randomNumber = rand(MIN_NUMBER, MAX_NUMBER);
+        [$randomNumber] = getRandomNumbers(1);
         $correctAnswer = $randomNumber % 2 === 0 ? "yes" : "no";
 
         $playerAnswer = getPlayerAnswer($randomNumber);
