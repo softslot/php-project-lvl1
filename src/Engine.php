@@ -12,7 +12,7 @@ function getPlayerName()
     return prompt('May I have your name?');
 }
 
-function getPlayerAnswer(mixed $question)
+function getPlayerAnswer(string $question)
 {
     return prompt("Question: {$question}");
 }
@@ -37,17 +37,17 @@ function printWelcomeMsg()
     line('Welcome to the Brain Games!');
 }
 
-function printGreetingMsg(mixed $name)
+function printGreetingMsg(string $name)
 {
     line("Hello, %s!", $name);
 }
 
-function printPlayerAnswerMsg(mixed $playerAnswer)
+function printPlayerAnswerMsg(string $playerAnswer)
 {
     line("Your answer: %s", $playerAnswer);
 }
 
-function printWrongAnswerMsg(mixed $playerAnswer, mixed $correctAnswer, mixed $name)
+function printWrongAnswerMsg(string $playerAnswer, string $correctAnswer, string $name)
 {
     line("'%s' is wrong answer ;(. Correct answer was '%s'.", $playerAnswer, $correctAnswer);
     line("Let's try again, %s!", $name);
@@ -58,7 +58,7 @@ function printCorrectMsg()
     line("Correct!");
 }
 
-function printCongratulationMsg(mixed $name)
+function printCongratulationMsg(string $name)
 {
     line("Congratulations, %s!", $name);
 }
