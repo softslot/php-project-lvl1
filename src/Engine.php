@@ -5,6 +5,8 @@ namespace Brain\Games\Engine;
 use function cli\line;
 use function cli\prompt;
 
+define("NUMBER_ROUNDS", 3);
+
 function getPlayerName()
 {
     return prompt('May I have your name?');
@@ -17,7 +19,7 @@ function getPlayerAnswer(mixed $question)
 
 function getNumberRounds()
 {
-    return 3;
+    return $NUMBER_ROUNDS;
 }
 
 function getRandomNumbers(int $count = 2, int $min = 1, int $max = 100)
