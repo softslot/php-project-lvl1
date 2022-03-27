@@ -27,7 +27,8 @@ function startGame()
             }
         }
 
-        $playerAnswer = getPlayerAnswer($randomNumber);
+        $question = "{$randomNumber}";
+        $playerAnswer = getPlayerAnswer($question);
         printPlayerAnswerMsg($playerAnswer);
 
         if (strval($playerAnswer) !== strval($correctAnswer)) {

@@ -36,7 +36,8 @@ function startGame()
                 break;
         }
 
-        $playerAnswer = getPlayerAnswer("{$firstNumber} {$randomOperator} {$secondNumber}");
+        $question = "{$firstNumber} {$randomOperator} {$secondNumber}";
+        $playerAnswer = getPlayerAnswer($question);
         printPlayerAnswerMsg($playerAnswer);
 
         if (intval($playerAnswer) !== intval($correctAnswer)) {

@@ -34,7 +34,8 @@ function startGame()
         $correctAnswer = $progression[$randomKey];
         $progression[$randomKey] = "..";
 
-        $playerAnswer = getPlayerAnswer(implode(" ", $progression));
+        $question = implode(" ", $progression);
+        $playerAnswer = getPlayerAnswer($question);
         printPlayerAnswerMsg($playerAnswer);
 
         if (intval($playerAnswer) !== intval($correctAnswer)) {

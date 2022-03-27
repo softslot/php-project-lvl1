@@ -20,7 +20,8 @@ function startGame()
         [$randomNumber] = getRandomNumbers(1);
         $correctAnswer = $randomNumber % 2 === 0 ? "yes" : "no";
 
-        $playerAnswer = getPlayerAnswer($randomNumber);
+        $question = "{$randomNumber}";
+        $playerAnswer = getPlayerAnswer($question);
         printPlayerAnswerMsg($playerAnswer);
 
         if (strval($playerAnswer) !== strval($correctAnswer)) {

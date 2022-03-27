@@ -27,7 +27,8 @@ function startGame()
             }
         }
 
-        $playerAnswer = getPlayerAnswer("{$firstNumber} {$secondNumber}");
+        $question = "{$firstNumber} {$secondNumber}";
+        $playerAnswer = getPlayerAnswer($question);
         printPlayerAnswerMsg($playerAnswer);
 
         if (intval($playerAnswer) !== intval($correctAnswer)) {
