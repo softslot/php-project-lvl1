@@ -16,13 +16,13 @@ function startGame()
 
     line("Answer \"yes\" if given number is prime. Otherwise answer \"no\".");
 
-    for ($i = 1; $i <= getNumberRounds(); $i++) {
+    for ($round = 1; $round <= getNumberRounds(); $round++) {
         [$randomNumber] = getRandomNumbers(1);
 
         $correctAnswer = "yes";
         $divisors = [2, 3, 5, 7];
         foreach ($divisors as $divisor) {
-            if ($randomNumber % $divisor === 0 || $randomNumber === 1) {
+            if ($randomNumber === 1 || $randomNumber % $divisor === 0) {
                 $correctAnswer = "no";
             }
         }

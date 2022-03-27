@@ -16,7 +16,7 @@ function startGame()
 
     line("Find the greatest common divisor of given numbers.");
 
-    for ($i = 1; $i <= getNumberRounds(); $i++) {
+    for ($round = 1; $round <= getNumberRounds(); $round++) {
         [$secondNumber, $firstNumber] = getRandomNumbers(2);
         $smallNumber = $firstNumber < $secondNumber ? $firstNumber : $secondNumber;
 
@@ -30,7 +30,7 @@ function startGame()
         $playerAnswer = getPlayerAnswer("{$firstNumber} {$secondNumber}");
         printPlayerAnswerMsg($playerAnswer);
 
-        if (strval($playerAnswer) !== strval($correctAnswer)) {
+        if (intval($playerAnswer) !== intval($correctAnswer)) {
             printWrongAnswerMsg($playerAnswer, $correctAnswer, $name);
             return;
         }

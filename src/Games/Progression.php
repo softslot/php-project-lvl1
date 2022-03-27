@@ -16,17 +16,17 @@ function startGame()
 
     line("What number is missing in the progression?");
 
-    for ($i = 1; $i <= getNumberRounds(); $i++) {
+    for ($round = 1; $round <= getNumberRounds(); $round++) {
         $progression = [];
         [$progressionLength] = getRandomNumbers(1, 5, 10);
         [$progressionStep] = getRandomNumbers(1, 1, 10);
         [$progressionStart] = getRandomNumbers(1, 1, 100);
 
-        for ($j = 0; $j < $progressionLength; $j++) {
+        for ($i = 0; $i < $progressionLength; $i++) {
             if (count($progression) === 0) {
                 $progression[] = $progressionStart;
             } else {
-                $progression[] = $progression[$j - 1] + $progressionStep;
+                $progression[] = $progression[$i - 1] + $progressionStep;
             }
         }
 

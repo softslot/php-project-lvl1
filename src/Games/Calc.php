@@ -19,7 +19,7 @@ function startGame()
     $operators = ["+", "-", "*"];
     $lastIndex = count($operators) - 1;
 
-    for ($i = 1; $i <= getNumberRounds(); $i++) {
+    for ($round = 1; $round <= getNumberRounds(); $round++) {
         $randomOperator = $operators[rand(0, $lastIndex)];
         [$firstNumber, $secondNumber] = getRandomNumbers(2, 0, 10);
 
