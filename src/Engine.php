@@ -19,7 +19,7 @@ function getPlayerAnswer(mixed $question)
 
 function getNumberRounds()
 {
-    return $NUMBER_ROUNDS;
+    return NUMBER_ROUNDS;
 }
 
 function getRandomNumbers(int $count = 2, int $min = 1, int $max = 100)
