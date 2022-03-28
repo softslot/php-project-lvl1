@@ -2,7 +2,7 @@
 
 namespace Brain\Games\Prime;
 
-use function Brain\Games\Engine\gameplay;
+use function Brain\Games\Engine\run;
 
 const MIN_NUM = 1;
 const MAX_NUM = 100;
@@ -11,7 +11,7 @@ function startGame()
 {
     $title = "Answer \"yes\" if given number is prime. Otherwise answer \"no\".";
 
-    gameplay($title, function () {
+    run($title, function () {
         $randNum = rand(MIN_NUM, MAX_NUM);
         $question = "{$randNum}";
         $correctAnswer = isPrime($randNum) ? "yes" : "no";

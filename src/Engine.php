@@ -6,7 +6,7 @@ use function cli\{line, prompt};
 
 const NUMBER_ROUNDS = 3;
 
-function gameplay(string $title, callable $game)
+function run(string $title, callable $game)
 {
     line('Welcome to the Brain Games!');
     $playerName = getPlayerName();

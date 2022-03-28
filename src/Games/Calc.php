@@ -2,7 +2,7 @@
 
 namespace Brain\Games\Calc;
 
-use function Brain\Games\Engine\gameplay;
+use function Brain\Games\Engine\run;
 
 const MIN_NUM = 0;
 const MAX_NUM = 10;
@@ -12,7 +12,7 @@ function startGame()
 {
     $title = "What is the result of the expression?";
 
-    gameplay($title, function () {
+    run($title, function () {
         $lastIndex = count(OPERATORS) - 1;
         $randOperator = OPERATORS[rand(0, $lastIndex)];
         $firstRandNum = rand(MIN_NUM, MAX_NUM);
