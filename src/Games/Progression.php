@@ -4,8 +4,8 @@ namespace Brain\Games\Progression;
 
 use function Brain\Games\Engine\run;
 
-const MIN_LENGHT = 5;
-const MAX_LENGHT = 10;
+const MIN_LENGTH = 5;
+const MAX_LENGTH = 10;
 
 const MIN_STEP = 1;
 const MAX_STEP = 10;
@@ -19,7 +19,7 @@ function startGame()
 
     run($title, function () {
         $progression = [];
-        $length = rand(MIN_LENGHT, MAX_LENGHT);
+        $length = rand(MIN_LENGTH, MAX_LENGTH);
         $step = rand(MIN_STEP, MAX_STEP);
         $start = rand(MIN_START_NUM, MAX_START_NUM);
 
