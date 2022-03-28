@@ -4,7 +4,7 @@ namespace Brain\Games\Engine;
 
 use function cli\{line, prompt};
 
-define("NUMBER_ROUNDS", 3);
+const NUMBER_ROUNDS = 3;
 
 function gameplay(string $title, callable $game)
 {
