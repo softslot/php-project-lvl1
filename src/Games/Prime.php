@@ -2,38 +2,19 @@
 
 namespace Brain\Games\Prime;
 
-use function cli\line;
-use function Brain\Games\Engine\{getPlayerName, getPlayerAnswer, getNumberRounds};
-use function Brain\Games\Engine\{printWelcomeMsg, printGreetingMsg, printPlayerAnswerMsg};
-use function Brain\Games\Engine\{printCongratulationMsg, printWrongAnswerMsg, printCorrectMsg};
-use function Brain\Games\Engine\{getRandomNumbers};
+use function Brain\Games\Engine\gameplay;
 
 function startGame()
 {
-    printWelcomeMsg();
-    $name = getPlayerName();
-    printGreetingMsg($name);
+    $title = "Answer \"yes\" if given number is prime. Otherwise answer \"no\".";
 
-    line("Answer \"yes\" if given number is prime. Otherwise answer \"no\".");
-
-    for ($round = 1; $round <= getNumberRounds(); $round++) {
-        [$randNum] = getRandomNumbers(1);
-
+    gameplay($title, function () {
+        $randNum = rand(1, 100);
+        $question = "{$randNum}";
         $correctAnswer = isPrime($randNum) ? "yes" : "no";
 
-        $question = "{$randNum}";
-        $playerAnswer = getPlayerAnswer($question);
-        printPlayerAnswerMsg($playerAnswer);
-
-        if (strval($playerAnswer) !== strval($correctAnswer)) {
-            printWrongAnswerMsg($playerAnswer, $correctAnswer, $name);
-            return;
-        }
-
-        printCorrectMsg();
-    }
-
-    printCongratulationMsg($name);
+        return [$question, $correctAnswer];
+    });
 }
 
 function isPrime(int $num)

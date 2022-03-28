@@ -2,23 +2,17 @@
 
 namespace Brain\Games\GCD;
 
-use function cli\line;
-use function Brain\Games\Engine\{getPlayerName, getPlayerAnswer, getNumberRounds};
-use function Brain\Games\Engine\{printWelcomeMsg, printGreetingMsg, printPlayerAnswerMsg};
-use function Brain\Games\Engine\{printCongratulationMsg, printWrongAnswerMsg, printCorrectMsg};
-use function Brain\Games\Engine\{getRandomNumbers};
+use function Brain\Games\Engine\gameplay;
 
 function startGame()
 {
-    printWelcomeMsg();
-    $name = getPlayerName();
-    printGreetingMsg($name);
+    $title = "Find the greatest common divisor of given numbers.";
 
-    line("Find the greatest common divisor of given numbers.");
-
-    for ($round = 1; $round <= getNumberRounds(); $round++) {
-        [$secondRandNum, $firstRandNum] = getRandomNumbers(2);
+    gameplay($title, function () {
+        $secondRandNum = rand(1, 100);
+        $firstRandNum = rand(1, 100);
         $smallNum = $firstRandNum < $secondRandNum ? $firstRandNum : $secondRandNum;
+        $question = "{$firstRandNum} {$secondRandNum}";
 
         $correctAnswer = 0;
         for ($divisor = 1; $divisor <= $smallNum; $divisor++) {
@@ -27,17 +21,6 @@ function startGame()
             }
         }
 
-        $question = "{$firstRandNum} {$secondRandNum}";
-        $playerAnswer = getPlayerAnswer($question);
-        printPlayerAnswerMsg($playerAnswer);
-
-        if (intval($playerAnswer) !== intval($correctAnswer)) {
-            printWrongAnswerMsg($playerAnswer, $correctAnswer, $name);
-            return;
-        }
-
-        printCorrectMsg();
-    }
-
-    printCongratulationMsg($name);
+        return [$question, $correctAnswer];
+    });
 }

@@ -2,26 +2,19 @@
 
 namespace Brain\Games\Calc;
 
-use function cli\line;
-use function Brain\Games\Engine\{getPlayerName, getPlayerAnswer, getNumberRounds};
-use function Brain\Games\Engine\{printWelcomeMsg, printGreetingMsg, printPlayerAnswerMsg};
-use function Brain\Games\Engine\{printCongratulationMsg, printWrongAnswerMsg, printCorrectMsg};
-use function Brain\Games\Engine\{getRandomNumbers};
+use function Brain\Games\Engine\gameplay;
 
 function startGame()
 {
-    printWelcomeMsg();
-    $name = getPlayerName();
-    printGreetingMsg($name);
+    $title = "What is the result of the expression?";
 
-    line("What is the result of the expression?");
-
-    $operators = ["+", "-", "*"];
-    $lastIndex = count($operators) - 1;
-
-    for ($round = 1; $round <= getNumberRounds(); $round++) {
+    gameplay($title, function () {
+        $operators = ["+", "-", "*"];
+        $lastIndex = count($operators) - 1;
         $randOperator = $operators[rand(0, $lastIndex)];
-        [$firstRandNum, $secondRandNum] = getRandomNumbers(2, 0, 10);
+        $firstRandNum = rand(0, 10);
+        $secondRandNum = rand(0, 10);
+        $question = "{$firstRandNum} {$randOperator} {$secondRandNum}";
 
         $correctAnswer = 0;
         switch ($randOperator) {
@@ -36,17 +29,6 @@ function startGame()
                 break;
         }
 
-        $question = "{$firstRandNum} {$randOperator} {$secondRandNum}";
-        $playerAnswer = getPlayerAnswer($question);
-        printPlayerAnswerMsg($playerAnswer);
-
-        if (intval($playerAnswer) !== intval($correctAnswer)) {
-            printWrongAnswerMsg($playerAnswer, $correctAnswer, $name);
-            return;
-        }
-
-        printCorrectMsg();
-    }
-
-    printCongratulationMsg($name);
+        return [$question, $correctAnswer];
+    });
 }

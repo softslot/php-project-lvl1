@@ -2,31 +2,23 @@
 
 namespace Brain\Games\Progression;
 
-use function cli\line;
-use function Brain\Games\Engine\{getPlayerName, getPlayerAnswer, getNumberRounds};
-use function Brain\Games\Engine\{printWelcomeMsg, printGreetingMsg, printPlayerAnswerMsg};
-use function Brain\Games\Engine\{printCongratulationMsg, printWrongAnswerMsg, printCorrectMsg};
-use function Brain\Games\Engine\{getRandomNumbers};
+use function Brain\Games\Engine\gameplay;
 
 function startGame()
 {
-    printWelcomeMsg();
-    $name = getPlayerName();
-    printGreetingMsg($name);
+    $title = "What number is missing in the progression?";
 
-    line("What number is missing in the progression?");
-
-    for ($round = 1; $round <= getNumberRounds(); $round++) {
+    gameplay($title, function () {
         $progression = [];
-        [$progressionLength] = getRandomNumbers(1, 5, 10);
-        [$progressionStep] = getRandomNumbers(1, 1, 10);
-        [$progressionStart] = getRandomNumbers(1, 1, 100);
+        $length = rand(5, 10);
+        $step = rand(1, 10);
+        $start = rand(1, 100);
 
-        for ($i = 0; $i < $progressionLength; $i++) {
+        for ($i = 0; $i < $length; $i++) {
             if (count($progression) === 0) {
-                $progression[] = $progressionStart;
+                $progression[] = $start;
             } else {
-                $progression[] = $progression[$i - 1] + $progressionStep;
+                $progression[] = $progression[$i - 1] + $step;
             }
         }
 
@@ -35,16 +27,7 @@ function startGame()
         $progression[$randKey] = "..";
 
         $question = implode(" ", $progression);
-        $playerAnswer = getPlayerAnswer($question);
-        printPlayerAnswerMsg($playerAnswer);
 
-        if (intval($playerAnswer) !== intval($correctAnswer)) {
-            printWrongAnswerMsg($playerAnswer, $correctAnswer, $name);
-            return;
-        }
-
-        printCorrectMsg();
-    }
-
-    printCongratulationMsg($name);
+        return [$question, $correctAnswer];
+    });
 }
