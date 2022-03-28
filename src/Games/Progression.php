@@ -4,15 +4,24 @@ namespace Brain\Games\Progression;
 
 use function Brain\Games\Engine\gameplay;
 
+const MIN_LENGHT = 5;
+const MAX_LENGHT = 10;
+
+const MIN_STEP = 1;
+const MAX_STEP = 10;
+
+const MIN_START_NUM = 1;
+const MAX_START_NUM = 10;
+
 function startGame()
 {
     $title = "What number is missing in the progression?";
 
     gameplay($title, function () {
         $progression = [];
-        $length = rand(5, 10);
-        $step = rand(1, 10);
-        $start = rand(1, 100);
+        $length = rand(MIN_LENGHT, MAX_LENGHT);
+        $step = rand(MIN_STEP, MAX_STEP);
+        $start = rand(MIN_START_NUM, MAX_START_NUM);
 
         for ($i = 0; $i < $length; $i++) {
             if (count($progression) === 0) {
@@ -25,7 +34,6 @@ function startGame()
         $randKey = array_rand($progression, 1);
         $correctAnswer = $progression[$randKey];
         $progression[$randKey] = "..";
-
         $question = implode(" ", $progression);
 
         return [$question, $correctAnswer];
