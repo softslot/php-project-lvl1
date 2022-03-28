@@ -20,23 +20,23 @@ function startGame()
     $lastIndex = count($operators) - 1;
 
     for ($round = 1; $round <= getNumberRounds(); $round++) {
-        $randomOperator = $operators[rand(0, $lastIndex)];
-        [$firstNumber, $secondNumber] = getRandomNumbers(2, 0, 10);
+        $randOperator = $operators[rand(0, $lastIndex)];
+        [$firstRandNum, $secondRandNum] = getRandomNumbers(2, 0, 10);
 
         $correctAnswer = 0;
-        switch ($randomOperator) {
+        switch ($randOperator) {
             case "+":
-                $correctAnswer = $firstNumber + $secondNumber;
+                $correctAnswer = $firstRandNum + $secondRandNum;
                 break;
             case "-":
-                $correctAnswer = $firstNumber - $secondNumber;
+                $correctAnswer = $firstRandNum - $secondRandNum;
                 break;
             case "*":
-                $correctAnswer = $firstNumber * $secondNumber;
+                $correctAnswer = $firstRandNum * $secondRandNum;
                 break;
         }
 
-        $question = "{$firstNumber} {$randomOperator} {$secondNumber}";
+        $question = "{$firstRandNum} {$randOperator} {$secondRandNum}";
         $playerAnswer = getPlayerAnswer($question);
         printPlayerAnswerMsg($playerAnswer);
 

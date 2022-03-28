@@ -17,17 +17,11 @@ function startGame()
     line("Answer \"yes\" if given number is prime. Otherwise answer \"no\".");
 
     for ($round = 1; $round <= getNumberRounds(); $round++) {
-        [$randomNumber] = getRandomNumbers(1);
+        [$randNum] = getRandomNumbers(1);
 
-        $correctAnswer = "yes";
-        $divisors = [2, 3, 5, 7];
-        foreach ($divisors as $divisor) {
-            if ($randomNumber === 1 || $randomNumber % $divisor === 0) {
-                $correctAnswer = "no";
-            }
-        }
+        $correctAnswer = isPrime($randNum) ? "yes" : "no";
 
-        $question = "{$randomNumber}";
+        $question = "{$randNum}";
         $playerAnswer = getPlayerAnswer($question);
         printPlayerAnswerMsg($playerAnswer);
 
@@ -40,4 +34,19 @@ function startGame()
     }
 
     printCongratulationMsg($name);
+}
+
+function isPrime(int $num)
+{
+    if ($num < 2) {
+        return false;
+    }
+
+    for ($devisor = 2; $devisor <= $num / 2; $devisor++) {
+        if ($num % $devisor === 0) {
+            return false;
+        }
+    }
+
+    return true;
 }

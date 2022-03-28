@@ -30,9 +30,9 @@ function startGame()
             }
         }
 
-        $randomKey = array_rand($progression, 1);
-        $correctAnswer = $progression[$randomKey];
-        $progression[$randomKey] = "..";
+        $randKey = array_rand($progression, 1);
+        $correctAnswer = $progression[$randKey];
+        $progression[$randKey] = "..";
 
         $question = implode(" ", $progression);
         $playerAnswer = getPlayerAnswer($question);

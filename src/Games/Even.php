@@ -17,10 +17,10 @@ function startGame()
     line("Answer \"yes\" if the number is even, otherwise answer \"no\".");
 
     for ($round = 1; $round <= getNumberRounds(); $round++) {
-        [$randomNumber] = getRandomNumbers(1);
-        $correctAnswer = $randomNumber % 2 === 0 ? "yes" : "no";
+        [$randNum] = getRandomNumbers(1);
+        $correctAnswer = $randNum % 2 === 0 ? "yes" : "no";
 
-        $question = "{$randomNumber}";
+        $question = "{$randNum}";
         $playerAnswer = getPlayerAnswer($question);
         printPlayerAnswerMsg($playerAnswer);
 
