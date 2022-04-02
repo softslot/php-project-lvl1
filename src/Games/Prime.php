@@ -1,6 +1,6 @@
 <?php
 
-namespace Brain\Games\Prime;
+namespace Brain\Games\Games\Prime;
 
 use function Brain\Games\Engine\run;
 
