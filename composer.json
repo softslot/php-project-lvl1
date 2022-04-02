@@ -9,9 +9,6 @@
         "bin/brain-prime"
     ],
     "autoload": {
-        "psr-4": {
-            "Brain\\Games\\": "src"
-        },
         "files": [
             "src/Cli.php",
             "src/Engine.php",
