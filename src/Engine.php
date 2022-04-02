@@ -9,13 +9,13 @@ const NUMBER_ROUNDS = 3;
 function run(string $title, callable $game)
 {
     line('Welcome to the Brain Games!');
-    $playerName = getPlayerName();
+    $playerName = prompt('May I have your name?');
     line("Hello, %s!", $playerName);
     line($title);
 
     for ($round = 1; $round <= NUMBER_ROUNDS; $round += 1) {
         [$question, $correctAnswer] = $game();
-        $playerAnswer = getPlayerAnswer($question);
+        $playerAnswer = prompt("Question: {$question}");
         line("Your answer: %s", $playerAnswer);
 
         if (strval($playerAnswer) !== strval($correctAnswer)) {
@@ -26,14 +26,4 @@ function run(string $title, callable $game)
         line("Correct!");
     }
     line("Congratulations, %s!", $playerName);
-}
-
-function getPlayerName()
-{
-    return prompt('May I have your name?');
-}
-
-function getPlayerAnswer(string $question)
-{
-    return prompt("Question: {$question}");
 }
