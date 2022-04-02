@@ -4,6 +4,8 @@ namespace Brain\Games\Games\Progression;
 
 use function Brain\Games\Engine\run;
 
+const GAME_DESCRIPTION = "What number is missing in the progression?";
+
 const MIN_LENGTH = 5;
 const MAX_LENGTH = 10;
 
@@ -15,9 +17,7 @@ const MAX_START_NUM = 10;
 
 function startGame()
 {
-    $title = "What number is missing in the progression?";
-
-    run($title, function () {
+    run(GAME_DESCRIPTION, function () {
         $progression = [];
         $length = rand(MIN_LENGTH, MAX_LENGTH);
         $step = rand(MIN_STEP, MAX_STEP);

@@ -4,14 +4,14 @@ namespace Brain\Games\Games\GCD;
 
 use function Brain\Games\Engine\run;
 
+const GAME_DESCRIPTION = "Find the greatest common divisor of given numbers.";
+
 const MIN_NUM = 1;
 const MAX_NUM = 100;
 
 function startGame()
 {
-    $title = "Find the greatest common divisor of given numbers.";
-
-    run($title, function () {
+    run(GAME_DESCRIPTION, function () {
         $secondRandNum = rand(MIN_NUM, MAX_NUM);
         $firstRandNum = rand(MIN_NUM, MAX_NUM);
         $smallest = $firstRandNum < $secondRandNum ? $firstRandNum : $secondRandNum;
