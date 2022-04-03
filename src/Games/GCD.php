@@ -12,16 +12,16 @@ const MAX_NUM = 100;
 function startGame()
 {
     run(GAME_DESCRIPTION, function () {
-        $secondRandNum = rand(MIN_NUM, MAX_NUM);
         $firstRandNum = rand(MIN_NUM, MAX_NUM);
-        $smallest = $firstRandNum < $secondRandNum ? $firstRandNum : $secondRandNum;
-
+        $secondRandNum = rand(MIN_NUM, MAX_NUM);
+        $maxDivisor = $firstRandNum < $secondRandNum ? $firstRandNum : $secondRandNum;
         $question = "{$firstRandNum} {$secondRandNum}";
-
+        
         $correctAnswer = 0;
-        for ($divisor = 1; $divisor <= $smallest; $divisor++) {
+        for ($divisor = $maxDivisor; $divisor >= 1; $divisor -= 1) {
             if ($firstRandNum % $divisor === 0 && $secondRandNum % $divisor === 0) {
                 $correctAnswer = $divisor;
+                break;
             }
         }
 
