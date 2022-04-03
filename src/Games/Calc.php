@@ -13,8 +13,7 @@ const OPERATORS = ["+", "-", "*"];
 function startGame()
 {
     run(GAME_DESCRIPTION, function () {
-        $lastIndex = count(OPERATORS) - 1;
-        $randOperator = OPERATORS[rand(0, $lastIndex)];
+        $randOperator = OPERATORS[array_rand(OPERATORS)];
         $firstRandNum = rand(MIN_NUM, MAX_NUM);
         $secondRandNum = rand(MIN_NUM, MAX_NUM);
         $question = "{$firstRandNum} {$randOperator} {$secondRandNum}";
