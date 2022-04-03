@@ -6,15 +6,15 @@ use function cli\{line, prompt};
 
 const NUMBER_ROUNDS = 3;
 
-function run(string $title, callable $game)
+function run(string $description, callable $play)
 {
     line('Welcome to the Brain Games!');
     $playerName = prompt('May I have your name?');
     line("Hello, %s!", $playerName);
-    line($title);
+    line($description);
 
     for ($round = 1; $round <= NUMBER_ROUNDS; $round += 1) {
-        [$question, $correctAnswer] = $game();
+        [$question, $correctAnswer] = $play();
         $playerAnswer = prompt("Question: {$question}");
         line("Your answer: %s", $playerAnswer);
 
