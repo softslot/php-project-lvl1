@@ -24,11 +24,7 @@ function startGame()
         $start = rand(MIN_START_NUM, MAX_START_NUM);
 
         for ($i = 0; $i < $length; $i++) {
-            if (count($progression) === 0) {
-                $progression[] = $start;
-            } else {
-                $progression[] = $progression[$i - 1] + $step;
-            }
+            $progression[] = $start + ($step * $i);
         }
 
         $randKey = array_rand($progression, 1);
