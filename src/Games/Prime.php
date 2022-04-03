@@ -26,8 +26,8 @@ function isPrime(int $num)
         return false;
     }
 
-    for ($devisor = 2; $devisor <= $num / 2; $devisor++) {
-        if ($num % $devisor === 0) {
+    for ($divisor = 2; $divisor <= $num / 2; $divisor++) {
+        if ($num % $divisor === 0) {
             return false;
         }
     }
