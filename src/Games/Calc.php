@@ -4,11 +4,11 @@ namespace Brain\Games\Games\Calc;
 
 use function Brain\Games\Engine\run;
 
-const GAME_DESCRIPTION = "What is the result of the expression?";
+const GAME_DESCRIPTION = 'What is the result of the expression?';
 
 const MIN_NUM = 0;
 const MAX_NUM = 10;
-const OPERATORS = ["+", "-", "*"];
+const OPERATORS = ['+', '-', '*'];
 
 function startGame()
 {
@@ -20,13 +20,13 @@ function startGame()
 
         $correctAnswer = 0;
         switch ($randOperator) {
-            case "+":
+            case '+':
                 $correctAnswer = $firstRandNum + $secondRandNum;
                 break;
-            case "-":
+            case '-':
                 $correctAnswer = $firstRandNum - $secondRandNum;
                 break;
-            case "*":
+            case '*':
                 $correctAnswer = $firstRandNum * $secondRandNum;
                 break;
         }
