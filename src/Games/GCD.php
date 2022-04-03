@@ -16,7 +16,7 @@ function startGame()
         $secondRandNum = rand(MIN_NUM, MAX_NUM);
         $maxDivisor = $firstRandNum < $secondRandNum ? $firstRandNum : $secondRandNum;
         $question = "{$firstRandNum} {$secondRandNum}";
-        
+
         $correctAnswer = 0;
         for ($divisor = $maxDivisor; $divisor >= 1; $divisor -= 1) {
             if ($firstRandNum % $divisor === 0 && $secondRandNum % $divisor === 0) {
