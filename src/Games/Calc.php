@@ -29,6 +29,8 @@ function startGame()
             case '*':
                 $correctAnswer = $firstRandNum * $secondRandNum;
                 break;
+            default:
+                throw new \Error("Unknown operator '{$randOperator}'!");
         }
 
         return [$question, $correctAnswer];
